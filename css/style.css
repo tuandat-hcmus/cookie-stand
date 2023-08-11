@@ -97,6 +97,7 @@ h1 {
 
 h2 {
     font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
 }
 
 p {
@@ -182,3 +183,51 @@ td:nth-child(1){
     background-color: antiquewhite;
 }
 
+/* Form styling*/
+form {
+    margin: 0 auto;
+    padding: 1rem;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 4px grey;
+}
+
+fieldset > ul {
+    list-style: none;
+}
+
+fieldset > ul > li {
+    font-size: 1rem;
+}
+
+legend {
+    font-family: 'Oswald', sans-serif;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    box-sizing: content-box;
+}
+
+fieldset {
+    margin: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+}
+
+button {
+    position: relative;
+    left: 80%;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 1px 1px 2px grey;
+}
+
+button:hover {
+    background-color: #08559B;
+    color: white;
+    border-radius: 1em;
+    transition: 500ms;
+}

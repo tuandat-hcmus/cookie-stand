@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function Location(name, min, max, avg) {
     this.name = name;
@@ -41,6 +41,7 @@ function Location(name, min, max, avg) {
 function createFooter(){
     const table = document.getElementById('table');
     const tableRow = document.createElement('tr');
+    tableRow.setAttribute('id', 'table-footer');
     const rowName = document.createElement('th');
     rowName.innerText = 'Totals';
     tableRow.appendChild(rowName);
@@ -70,3 +71,41 @@ paris.render();
 lima.render();
 createFooter();
 
+// submit event handler
+const myForm = document.getElementById('location-form');
+
+function submitHandler(event) {
+    event.preventDefault();
+    let name = event.target.name.value;
+    let min = event.target.min.value;
+    let max = event.target.max.value;
+    let avg = event.target.avg.value;
+    if(name === '' || min === '' || max === '' || avg === ''){
+        alert('Please fill all the boxes');
+    }
+    else{
+        let isAccepted = true;
+        min = parseInt(min);
+        max = parseInt(max);
+        avg = parseFloat(avg);
+        if(min > max){
+            isAccepted = false;
+            alert('Minimum customer must be less than maximum customer');
+        }
+        if(isNaN(avg)){
+            isAccepted = false;
+            alert('Average cookies input wrong! The input must be a float number.');
+        }
+        if(isAccepted){
+            const location = new Location(name, min, max, avg);
+            console.log(location);
+            const footer = document.getElementById('table-footer');
+            footer.remove();
+            location.render();
+            createFooter();
+            myForm.reset();
+        }
+    }
+}
+
+myForm.addEventListener("submit", submitHandler);
